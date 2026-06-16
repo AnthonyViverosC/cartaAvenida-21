@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-night-950 text-white font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(230, 182, 86, 0.10), transparent 55%),
+      radial-gradient(circle at 85% 90%, rgba(157, 77, 255, 0.08), transparent 55%),
+      linear-gradient(180deg, #05070d 0%, #07090f 100%);
+    background-attachment: fixed;
+  }
+  /* Espacio extra al final para que los botones flotantes no tapen contenido */
+  footer {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px));
+  }
+  ::selection {
+    @apply bg-bronze-500 text-night-950;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-md border border-white/10;
+  }
+  .glass-strong {
+    @apply bg-night-900/80 backdrop-blur-xl border border-white/10;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(120deg, #f4d289 0%, #e6b656 35%, #b8854a 70%, #f4d289 100%);
+    background-size: 200% auto;
+  }
+  .shimmer-text {
+    @apply gradient-text animate-shimmer;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full
+      bg-gradient-to-r from-bronze-600 via-gold-500 to-bronze-600 text-night-950 font-semibold
+      shadow-gold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full
+      border border-white/15 text-white/90 hover:border-bronze-500 hover:text-bronze-400
+      transition-all duration-300;
+  }
+  .divider-gold {
+    height: 1px;
+    background-image: linear-gradient(90deg, transparent, rgba(230, 182, 86, 0.6), transparent);
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Scrollbar global elegante */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #07090f;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8c5e2e, #d4a25d);
+  border-radius: 999px;
+  border: 2px solid #07090f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b8854a, #f4d289);
+}
