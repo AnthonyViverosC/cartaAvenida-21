@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Instagram, Search, X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import SearchBar from './SearchBar.jsx';
-
-const INSTAGRAM_URL = 'https://www.instagram.com/avenidaa_21/';
 
 export default function Navbar({ busqueda, setBusqueda }) {
   const [scrolled, setScrolled] = useState(false);
@@ -59,17 +57,6 @@ export default function Navbar({ busqueda, setBusqueda }) {
           >
             {searchOpen ? <X size={18} /> : <Search size={18} />}
           </button>
-
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 w-10 h-10 md:w-auto md:h-auto md:px-5 md:py-2 rounded-full border border-white/15 text-white/90 hover:border-bronze-500 hover:text-bronze-400 transition-all"
-            aria-label="Instagram"
-          >
-            <Instagram size={18} />
-            <span className="hidden md:inline">Instagram</span>
-          </a>
         </div>
       </div>
 

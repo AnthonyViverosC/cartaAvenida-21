@@ -8,72 +8,87 @@ export default function Hero() {
       id="top"
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-24 pb-16 md:pt-20 md:pb-20"
     >
-      {/* Imagen de portada — ambiente de bar */}
+      {/* Imagen de portada — más viva y saturada */}
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              'url(/cocteles/Polvo%20de%20media%20noche.jpeg)',
-            filter: 'brightness(0.35) saturate(1.1)',
+            backgroundImage: 'url(/cocteles/Polvo%20de%20media%20noche.jpeg)',
+            filter: 'brightness(0.55) saturate(1.35) contrast(1.1)',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-night-950/70 via-night-950/55 to-night-950" />
-        <div className="absolute inset-0 bg-radial-spot" />
+        <div className="absolute inset-0 bg-gradient-to-b from-night-950/45 via-night-950/30 to-night-950" />
       </div>
 
-      {/* Luces neon flotantes */}
+      {/* Capa de neones — muchos, saturados, en movimiento */}
       <motion.div
-        className="absolute top-1/4 left-10 w-72 h-72 rounded-full blur-3xl opacity-40"
+        className="absolute top-[10%] left-[5%] w-72 h-72 md:w-96 md:h-96 rounded-full blur-3xl opacity-60 pointer-events-none"
         style={{ background: 'radial-gradient(circle, #9d4dff, transparent 70%)' }}
-        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+        animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-10 w-80 h-80 rounded-full blur-3xl opacity-35"
-        style={{ background: 'radial-gradient(circle, #e6b656, transparent 70%)' }}
-        animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
+        className="absolute bottom-[8%] right-[5%] w-80 h-80 md:w-[28rem] md:h-[28rem] rounded-full blur-3xl opacity-55 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, #ff3ea5, transparent 70%)' }}
+        animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
       />
+      <motion.div
+        className="absolute top-[30%] right-[15%] w-64 h-64 md:w-80 md:h-80 rounded-full blur-3xl opacity-55 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, #37e6ff, transparent 70%)' }}
+        animate={{ x: [0, 25, 0], y: [0, 35, 0] }}
+        transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute bottom-[25%] left-[15%] w-72 h-72 md:w-96 md:h-96 rounded-full blur-3xl opacity-60 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, #f4d289, transparent 70%)' }}
+        animate={{ x: [0, -30, 0], y: [0, -25, 0] }}
+        transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {/* Partículas brillantes flotando */}
+      <Sparkleitos />
 
       {/* Contenido */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
         >
           <Sparkles size={14} className="text-bronze-400" />
-          <span className="text-xs tracking-[0.3em] text-white/80 uppercase">
+          <span className="text-xs tracking-[0.3em] text-white/90 uppercase">
             Carta digital · Bar premium
           </span>
         </motion.div>
 
+        {/* ── LOGO HERO ── */}
+        <LogoHero />
+
+        {/* Marca tipográfica */}
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="font-display text-5xl xs:text-6xl md:text-8xl lg:text-9xl leading-none mb-4"
+          transition={{ duration: 0.9, delay: 1.0 }}
+          className="font-display text-4xl xs:text-5xl md:text-7xl leading-none mt-2 mb-3"
         >
-          <span className="block gradient-text">Avenida</span>
-          <span className="block font-script text-bronze-400 text-6xl xs:text-7xl md:text-9xl lg:text-[10rem] -mt-1 md:-mt-4">
-            21
-          </span>
+          <span className="shimmer-text">Avenida 21</span>
         </motion.h1>
 
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 0.9 }}
-          className="mx-auto w-40 h-px bg-gold-line mb-6"
+          transition={{ duration: 1, delay: 1.2 }}
+          className="mx-auto w-32 h-px bg-gold-line mb-4"
         />
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.1 }}
-          className="font-script text-3xl md:text-4xl text-bronze-400 mb-3"
+          transition={{ duration: 1, delay: 1.3 }}
+          className="font-script text-3xl md:text-5xl text-bronze-400 mb-4 drop-shadow-[0_0_20px_rgba(230,182,86,0.45)]"
         >
           Dónde la magia empieza
         </motion.p>
@@ -81,8 +96,8 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
-          className="text-white/65 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-10"
+          transition={{ duration: 0.8, delay: 1.5 }}
+          className="text-white/75 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-8"
         >
           Cócteles de autor, licores selectos y noches que recordarás.
           Desliza y descubre nuestra carta.
@@ -91,10 +106,10 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
+          transition={{ duration: 0.8, delay: 1.7 }}
           className="flex flex-col sm:flex-row gap-3 items-center justify-center"
         >
-          <a href="#cocteles" className="btn-gold w-full sm:w-auto">
+          <a href="#cocteles" className="btn-gold w-full sm:w-auto animate-glow">
             Ver la carta
           </a>
           <a
@@ -121,5 +136,127 @@ export default function Hero() {
         <ChevronDown size={28} />
       </motion.div>
     </section>
+  );
+}
+
+/* ──────────── LOGO ESPECTACULAR ──────────── */
+function LogoHero() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+      animate={{ opacity: 1, scale: 1, rotate: 0 }}
+      transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      className="relative mx-auto w-44 h-44 xs:w-52 xs:h-52 md:w-72 md:h-72 mb-4"
+    >
+      {/* Halo dorado pulsante */}
+      <motion.div
+        className="absolute inset-0 rounded-full blur-2xl"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(230,182,86,0.85), rgba(255,62,165,0.35) 55%, transparent 75%)',
+        }}
+        animate={{ scale: [1, 1.15, 1], opacity: [0.7, 1, 0.7] }}
+        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {/* Anillo cónico rotando — efecto premium */}
+      <motion.div
+        className="absolute -inset-3 rounded-full"
+        style={{
+          background:
+            'conic-gradient(from 0deg, #f4d289, #ff3ea5, #9d4dff, #37e6ff, #f4d289)',
+          filter: 'blur(6px)',
+          opacity: 0.85,
+        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+      />
+
+      {/* Anillo dorado nítido */}
+      <div className="absolute -inset-1 rounded-full ring-2 ring-bronze-500/70 shadow-[0_0_60px_rgba(230,182,86,0.55)]" />
+
+      {/* Logo */}
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute inset-2 rounded-full overflow-hidden ring-1 ring-white/20 shadow-[inset_0_0_40px_rgba(0,0,0,0.6)]"
+      >
+        <img
+          src="/logo/logo2.jpeg"
+          alt="Avenida 21 - Logo"
+          className="w-full h-full object-cover"
+        />
+        {/* Brillo de barrido */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.5) 50%, transparent 65%)',
+          }}
+          animate={{ x: ['-120%', '120%'] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.5 }}
+        />
+      </motion.div>
+
+      {/* Sparks flotando alrededor */}
+      {[0, 1, 2, 3, 4].map((i) => (
+        <motion.span
+          key={i}
+          className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-bronze-300 shadow-[0_0_12px_4px_rgba(244,210,137,0.7)]"
+          animate={{
+            x: [
+              0,
+              Math.cos((i / 5) * Math.PI * 2) * 130,
+              Math.cos((i / 5) * Math.PI * 2 + Math.PI) * 130,
+              0,
+            ],
+            y: [
+              0,
+              Math.sin((i / 5) * Math.PI * 2) * 130,
+              Math.sin((i / 5) * Math.PI * 2 + Math.PI) * 130,
+              0,
+            ],
+            opacity: [0, 1, 1, 0],
+          }}
+          transition={{
+            duration: 6 + i * 0.6,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: i * 0.4,
+          }}
+        />
+      ))}
+    </motion.div>
+  );
+}
+
+/* Partículas de brillo dispersas */
+function Sparkleitos() {
+  const stars = Array.from({ length: 22 });
+  return (
+    <div className="absolute inset-0 pointer-events-none z-0">
+      {stars.map((_, i) => {
+        const left = (i * 53) % 100;
+        const top = (i * 37) % 100;
+        const size = 2 + (i % 3);
+        const delay = (i % 7) * 0.4;
+        const dur = 3 + (i % 5);
+        return (
+          <motion.span
+            key={i}
+            className="absolute rounded-full bg-bronze-300"
+            style={{
+              left: `${left}%`,
+              top: `${top}%`,
+              width: size,
+              height: size,
+              boxShadow: '0 0 10px rgba(244,210,137,0.9)',
+            }}
+            animate={{ opacity: [0, 1, 0], scale: [0.5, 1.4, 0.5] }}
+            transition={{ duration: dur, repeat: Infinity, delay, ease: 'easeInOut' }}
+          />
+        );
+      })}
+    </div>
   );
 }
