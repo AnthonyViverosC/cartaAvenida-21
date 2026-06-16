@@ -8,12 +8,13 @@ export default function MenuSection({ categoria, productos }) {
     <section
       id={categoria.id}
       className="scroll-mt-32 max-w-7xl mx-auto px-3 md:px-8 py-10 md:py-20"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1200px' }}
     >
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.3 }}
         className="text-center mb-8 md:mb-14"
       >
         <p className="text-2xl md:text-4xl mb-1 md:mb-2" aria-hidden>

@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { memo, useState } from 'react';
 import BottlePlaceholder from './BottlePlaceholder.jsx';
 import { formatearPrecio } from '../data/menu.js';
 
-export default function ProductCard({ producto, index }) {
+function ProductCard({ producto }) {
   const [imgError, setImgError] = useState(false);
   const hasImage = producto.imagen && !imgError;
 
-  // El tipo de placeholder depende de la categoría
+  // Tipo de placeholder según categoría
   const tipoPlaceholder =
     producto.categoria === 'cervezas'
       ? 'lata'
@@ -18,19 +17,13 @@ export default function ProductCard({ producto, index }) {
       : 'botella';
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: Math.min(index * 0.04, 0.4) }}
-      whileHover={{ y: -6 }}
-      className="group relative rounded-2xl overflow-hidden glass hover:border-bronze-600/60 transition-all duration-500 shadow-card"
-    >
+    <article className="group relative rounded-2xl overflow-hidden glass hover:border-bronze-600/40 transition-colors duration-300 shadow-card">
       {/* halo dorado al hacer hover */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
+      <div
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300"
         style={{
           background:
-            'radial-gradient(circle at 50% 0%, rgba(230,182,86,0.18), transparent 60%)',
+            'radial-gradient(circle at 50% 0%, rgba(230,182,86,0.14), transparent 60%)',
         }}
       />
 
@@ -41,8 +34,9 @@ export default function ProductCard({ producto, index }) {
             src={producto.imagen}
             alt={producto.nombre}
             loading="lazy"
+            decoding="async"
             onError={() => setImgError(true)}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center p-6 bg-gradient-to-b from-night-700 to-night-900">
@@ -77,6 +71,8 @@ export default function ProductCard({ producto, index }) {
         )}
         <div className="mt-2 md:mt-3 divider-gold opacity-40 group-hover:opacity-100 transition" />
       </div>
-    </motion.article>
+    </article>
   );
 }
+
+export default memo(ProductCard);
