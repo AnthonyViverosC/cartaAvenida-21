@@ -42,7 +42,7 @@ function ProductCard({ producto }) {
             decoding="async"
             onError={() => setImgError(true)}
             className={`w-full h-full group-hover:scale-[1.03] transition-transform duration-300 ${
-              esCoctel ? 'object-cover' : 'object-contain p-3 md:p-4'
+              esCoctel ? 'object-cover' : 'object-contain p-1.5 md:p-2'
             }`}
           />
         ) : (

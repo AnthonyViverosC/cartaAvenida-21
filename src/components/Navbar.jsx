@@ -8,7 +8,7 @@ export default function Navbar({ busqueda, setBusqueda }) {
   const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -20,9 +20,9 @@ export default function Navbar({ busqueda, setBusqueda }) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={[
-        'fixed top-0 left-0 right-0 z-40 transition-all duration-500',
+        'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
         scrolled
-          ? 'bg-night-950/80 backdrop-blur-xl border-b border-bronze-700/30'
+          ? 'bg-night-950/90 backdrop-blur-xl border-b border-bronze-700/30 shadow-card'
           : 'bg-transparent',
       ].join(' ')}
     >

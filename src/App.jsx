@@ -6,7 +6,6 @@ import MenuSection from './components/MenuSection.jsx';
 import Footer from './components/Footer.jsx';
 import InstagramButton from './components/InstagramButton.jsx';
 import ReservationButton from './components/ReservationButton.jsx';
-import BackToTopButton from './components/BackToTopButton.jsx';
 import { categorias, productos } from './data/menu.js';
 
 export default function App() {
@@ -75,7 +74,6 @@ export default function App() {
       </main>
 
       <Footer />
-      <BackToTopButton />
       <ReservationButton />
       <InstagramButton />
     </div>
