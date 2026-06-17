@@ -144,8 +144,8 @@ const cervezas = [
   { nombre: "Corona", precio: 15, color: "#e6c25a", imagen: "/cervezas/corona.jpg" },
   { nombre: "Budweiser", precio: 10, color: "#b71c1c", imagen: "/cervezas/budweiser.jpg" },
   { nombre: "Club Dorada", precio: 12, color: "#d4a45a", imagen: "/cervezas/club dorada .jpeg" },
-  { nombre: "Stella Artois", precio: 15, color: "#c8954c", imagen: "/cervezas/stella-artois.jpg" },
-  { nombre: "Smirnoff Ice", precio: 20, color: "#5a8cc8", imagen: "/cervezas/smirnoff-ice.jpg" },
+  { nombre: "Stella Artois", precio: 15, color: "#c8954c", imagen: "/cervezas/stella-artois-new.webp" },
+  { nombre: "Smirnoff Ice", precio: 20, color: "#5a8cc8", imagen: "/cervezas/smirnoff-ice-new.webp" },
 ];
 
 // ─── LICORES NACIONALES ──────────────────────────────────────
