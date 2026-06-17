@@ -4,11 +4,11 @@
 // Los productos sin imagen propia usan un placeholder elegante (BottlePlaceholder)
 
 export const categorias = [
-  { id: "cocteles", nombre: "Cócteles", icono: "" },
-  { id: "cervezas", nombre: "Cervezas", icono: "" },
   { id: "nacionales", nombre: "Licores Nacionales", icono: "" },
   { id: "whisky", nombre: "Whisky", icono: "" },
   { id: "tequila", nombre: "Tequila", icono: "" },
+  { id: "cervezas", nombre: "Cervezas", icono: "" },
+  { id: "cocteles", nombre: "Cócteles", icono: "" },
   { id: "otros", nombre: "Otros", icono: "" },
 ];
 
@@ -143,7 +143,7 @@ const cocteles = [
 const cervezas = [
   { nombre: "Corona", precio: 15, color: "#e6c25a", imagen: "/cervezas/corona.jpg" },
   { nombre: "Budweiser", precio: 10, color: "#b71c1c", imagen: "/cervezas/budweiser.jpg" },
-  { nombre: "Club Dorada", precio: 12, color: "#d4a45a" },
+  { nombre: "Club Dorada", precio: 12, color: "#d4a45a", imagen: "/cervezas/club dorada .jpeg" },
   { nombre: "Stella Artois", precio: 15, color: "#c8954c", imagen: "/cervezas/stella-artois.jpg" },
   { nombre: "Smirnoff Ice", precio: 20, color: "#5a8cc8", imagen: "/cervezas/smirnoff-ice.jpg" },
 ];
@@ -151,35 +151,39 @@ const cervezas = [
 // ─── LICORES NACIONALES ──────────────────────────────────────
 const nacionales = [
   {
-    nombre: "Aguardiente Nacional",
-    precio: 150,
-    descripcion: "Botella",
-    color: "#a8e6cf",
-  },
-  {
     nombre: "Aguardiente Nariño",
     precio: 150,
     descripcion: "Botella",
     color: "#7fd8a4",
+    imagen: "/nacionales/nariño.jpeg",
   },
   {
     nombre: "Aguardiente Amarillo",
     precio: 150,
     descripcion: "Botella",
     color: "#f6d96a",
+    imagen: "/nacionales/amarillo.jpeg",
   },
   {
     nombre: "Aguardiente Tamarindo",
     precio: 150,
     descripcion: "Botella",
     color: "#d6883a",
+    imagen: "/nacionales/tamarindo.jpeg",
   },
-  { nombre: "Ron", precio: 140, descripcion: "Botella", color: "#8c4a1e" },
+  {
+    nombre: "Ron",
+    precio: 140,
+    descripcion: "Botella",
+    color: "#8c4a1e",
+    imagen: "/nacionales/ron.jpeg",
+  },
   {
     nombre: "Ron 8 Años",
     precio: 220,
     descripcion: "Botella · Añejo premium",
     color: "#5e2f12",
+    imagen: "/nacionales/ron 8 años.jpeg",
   },
   {
     nombre: "Bacardí Limón",
@@ -193,20 +197,7 @@ const nacionales = [
     precio: 150,
     descripcion: "Botella",
     color: "#d4e36a",
-    imagen: "/nacionales/smirnoff.jpg",
-  },
-  {
-    nombre: "Aguardiente Antioqueño",
-    precio: 150,
-    descripcion: "Botella",
-    color: "#9bdfb5",
-    imagen: "/nacionales/aguardiente-antioqueno.jpg",
-  },
-  {
-    nombre: "Media (cualquier nacional)",
-    precio: 90,
-    descripcion: "Media botella",
-    color: "#b89b6a",
+    imagen: "/nacionales/smirnoff lulo.jpeg",
   },
 ];
 
@@ -224,12 +215,14 @@ const whisky = [
     precio: 180,
     descripcion: "Botella",
     color: "#b07a3c",
+    imagen: "/whisky/something-special-new.webp",
   },
   {
     nombre: "Something Special · Media",
     precio: 100,
     descripcion: "Media botella",
     color: "#b07a3c",
+    imagen: "/whisky/something-special-new.webp",
   },
   {
     nombre: "Ballantine's",
@@ -278,18 +271,21 @@ const whisky = [
     precio: 340,
     descripcion: "Botella",
     color: "#1a2540",
+    imagen: "/whisky/Buchanan's 12.webp",
   },
   {
     nombre: "Buchanan's · Media",
     precio: 210,
     descripcion: "Media botella",
     color: "#1a2540",
+    imagen: "/whisky/Buchanan's 12.webp",
   },
   {
     nombre: "Buchanan Master",
     precio: 400,
     descripcion: "Botella · Premium",
     color: "#0e1730",
+    imagen: "/whisky/Buchanan's master.jpg",
   },
   {
     nombre: "Old Parr",
@@ -337,38 +333,46 @@ const tequila = [
     color: "#c89a4a",
     imagen: "/tequila/jose-cuervo.jpg",
   },
-  { nombre: "Jimador", precio: 250, descripcion: "Botella", color: "#b07a3c" },
+  {
+    nombre: "Jimador",
+    precio: 250,
+    descripcion: "Botella",
+    color: "#b07a3c",
+    imagen: "/whisky/jimador.jpg",
+  },
   {
     nombre: "Jimador · Media",
     precio: 160,
     descripcion: "Media botella",
     color: "#b07a3c",
+    imagen: "/whisky/jimador.jpg",
   },
   {
     nombre: "Don Julio",
     precio: 560,
     descripcion: "Botella · Premium",
     color: "#8a5a1f",
-    imagen: "/tequila/don-julio.jpg",
+    imagen: "/whisky/TEQUILA-DON-JULIO.webp",
   },
   {
     nombre: "1800",
     precio: 580,
     descripcion: "Botella · Reserva",
     color: "#6a3f12",
+    imagen: "/whisky/1800.jpg",
   },
 ];
 
 // ─── OTROS / MEZCLADORES ─────────────────────────────────────
 const otros = [
-  { nombre: "Coca-Cola", precio: 10, color: "#3a1010", imagen: "/otros/coca-cola.jpg" },
-  { nombre: "Soda", precio: 10, color: "#4a6f8a" },
-  { nombre: "Bonfiest", precio: 10, color: "#7a3a1f" },
-  { nombre: "Agua", precio: 6, color: "#5fb1d4" },
+  { nombre: "Coca-Cola", precio: 10, color: "#3a1010", imagen: "/otros/cocacola.jpg" },
+  { nombre: "Soda", precio: 10, color: "#4a6f8a", imagen: "/otros/soda.jpg" },
+  { nombre: "Bonfiest", precio: 10, color: "#7a3a1f", imagen: "/otros/bonfiest.jpg" },
+  { nombre: "Agua", precio: 6, color: "#5fb1d4", imagen: "/otros/agua.jpg" },
   { nombre: "Gatorade", precio: 12, color: "#3a8a3a", imagen: "/otros/gatorade.jpg" },
   { nombre: "Bomba", precio: 20, color: "#1a3a7a" },
-  { nombre: "Red Bull", precio: 18, color: "#1a3a7a", imagen: "/otros/red-bull.jpg" },
-  { nombre: "Electrolit", precio: 18, color: "#d4683a" },
+  { nombre: "Red Bull", precio: 18, color: "#1a3a7a", imagen: "/otros/redbull.jpg" },
+  { nombre: "Electrolit", precio: 18, color: "#d4683a", imagen: "/otros/electrolit.jpg" },
 ];
 
 // Construye id y categoría automáticamente para cada producto
@@ -380,11 +384,11 @@ const conMeta = (categoriaId, items) =>
   }));
 
 export const productos = [
-  ...conMeta("cocteles", cocteles),
-  ...conMeta("cervezas", cervezas),
   ...conMeta("nacionales", nacionales),
   ...conMeta("whisky", whisky),
   ...conMeta("tequila", tequila),
+  ...conMeta("cervezas", cervezas),
+  ...conMeta("cocteles", cocteles),
   ...conMeta("otros", otros),
 ];
 

@@ -8,7 +8,6 @@ export default function MenuSection({ categoria, productos }) {
     <section
       id={categoria.id}
       className="scroll-mt-32 max-w-7xl mx-auto px-3 md:px-8 py-10 md:py-20"
-      style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1200px' }}
     >
       <motion.div
         initial={{ opacity: 0 }}

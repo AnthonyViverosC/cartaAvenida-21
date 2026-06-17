@@ -5,6 +5,7 @@ import { formatearPrecio } from '../data/menu.js';
 function ProductCard({ producto }) {
   const [imgError, setImgError] = useState(false);
   const hasImage = producto.imagen && !imgError;
+  const esCoctel = producto.categoria === 'cocteles';
 
   // Tipo de placeholder según categoría
   const tipoPlaceholder =
@@ -28,7 +29,11 @@ function ProductCard({ producto }) {
       />
 
       {/* media */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-night-800">
+      <div
+        className={`relative aspect-[4/5] overflow-hidden ${
+          esCoctel ? 'bg-night-800' : 'bg-white'
+        }`}
+      >
         {hasImage ? (
           <img
             src={producto.imagen}
@@ -36,7 +41,9 @@ function ProductCard({ producto }) {
             loading="lazy"
             decoding="async"
             onError={() => setImgError(true)}
-            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+            className={`w-full h-full group-hover:scale-[1.03] transition-transform duration-300 ${
+              esCoctel ? 'object-cover' : 'object-contain p-3 md:p-4'
+            }`}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center p-6 bg-gradient-to-b from-night-700 to-night-900">
@@ -48,8 +55,10 @@ function ProductCard({ producto }) {
           </div>
         )}
 
-        {/* gradiente inferior */}
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-night-900 to-transparent pointer-events-none" />
+        {/* gradiente inferior (solo en cócteles, sobre fondo oscuro) */}
+        {esCoctel && (
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-night-900 to-transparent pointer-events-none" />
+        )}
       </div>
 
       {/* info */}
