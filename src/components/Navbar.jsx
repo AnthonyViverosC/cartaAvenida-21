@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
 import SearchBar from './SearchBar.jsx';
+import { useConfig } from '../context/ConfigContext.jsx';
 
 export default function Navbar({ busqueda, setBusqueda }) {
+  const { config } = useConfig();
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -30,17 +32,17 @@ export default function Navbar({ busqueda, setBusqueda }) {
         <a href="#top" className="flex items-center gap-2 md:gap-3 group min-w-0">
           <div className="relative w-9 h-9 md:w-12 md:h-12 rounded-full overflow-hidden ring-1 ring-bronze-600/50 shadow-gold shrink-0">
             <img
-              src="/logo/logo2.jpeg"
-              alt="Avenida 21"
+              src={config.logo_url}
+              alt={config.nombre_negocio}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
           </div>
           <div className="leading-tight min-w-0">
             <p className="font-display text-base md:text-xl tracking-wide gradient-text truncate">
-              Avenida 21
+              {config.nombre_negocio}
             </p>
             <p className="hidden xs:block text-[9px] md:text-xs text-white/55 tracking-[0.2em] uppercase truncate">
-              Dónde la magia empieza
+              {config.eslogan}
             </p>
           </div>
         </a>

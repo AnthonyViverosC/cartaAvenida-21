@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
-
-const INSTAGRAM_URL = "https://www.instagram.com/avenidaa_21/";
+import { useConfig } from "../context/ConfigContext.jsx";
 
 export default function InstagramButton() {
+  const { config } = useConfig();
+  const instagram = config.redes?.instagram;
+  // Si no hay Instagram configurado, no mostramos el botón.
+  if (!instagram) return null;
   return (
     <motion.a
-      href={INSTAGRAM_URL}
+      href={instagram}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, scale: 0.6 }}

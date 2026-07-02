@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Sparkles, ChevronDown, MessageCircle } from 'lucide-react';
-import { whatsappLink } from './ReservationButton.jsx';
+import { useConfig } from '../context/ConfigContext.jsx';
+import { construirWhatsapp } from '../config/defaults.js';
 
 export default function Hero() {
+  const { config } = useConfig();
   return (
     <section
       id="top"
@@ -13,7 +15,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/cocteles/Polvo%20de%20media%20noche.jpeg)',
+            backgroundImage: `url("${config.portada_url}")`,
             filter: 'brightness(0.55) saturate(1.35) contrast(1.1)',
           }}
         />
@@ -65,7 +67,7 @@ export default function Hero() {
         </motion.div>
 
         {/* ── LOGO HERO ── */}
-        <LogoHero />
+        <LogoHero logo={config.logo_url} nombre={config.nombre_negocio} />
 
         {/* Marca tipográfica */}
         <motion.h1
@@ -74,7 +76,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 1.0 }}
           className="font-display text-4xl xs:text-5xl md:text-7xl leading-none mt-2 mb-3"
         >
-          <span className="shimmer-text">Avenida 21</span>
+          <span className="shimmer-text">{config.nombre_negocio}</span>
         </motion.h1>
 
         <motion.div
@@ -90,7 +92,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 1.3 }}
           className="font-script text-3xl md:text-5xl text-bronze-400 mb-4 drop-shadow-[0_0_20px_rgba(230,182,86,0.45)]"
         >
-          Dónde la magia empieza
+          {config.eslogan}
         </motion.p>
 
         <motion.p
@@ -113,7 +115,7 @@ export default function Hero() {
             Ver la carta
           </a>
           <a
-            href={whatsappLink()}
+            href={construirWhatsapp(config.whatsapp, config.nombre_negocio)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full
@@ -140,7 +142,7 @@ export default function Hero() {
 }
 
 /* ──────────── LOGO ESPECTACULAR ──────────── */
-function LogoHero() {
+function LogoHero({ logo, nombre }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
@@ -182,8 +184,8 @@ function LogoHero() {
         className="absolute inset-2 rounded-full overflow-hidden ring-1 ring-white/20 shadow-[inset_0_0_40px_rgba(0,0,0,0.6)]"
       >
         <img
-          src="/logo/logo2.jpeg"
-          alt="Avenida 21 - Logo"
+          src={logo}
+          alt={`${nombre} - Logo`}
           className="w-full h-full object-cover"
         />
         {/* Brillo de barrido */}

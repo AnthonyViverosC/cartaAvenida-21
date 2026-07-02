@@ -1,16 +1,13 @@
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
-
-const WHATSAPP_NUMBER = '573137877263';
-const WHATSAPP_MESSAGE = '¡Hola! Quiero hacer una *reserva* en *Avenida 21*';
-
-export const whatsappLink = () =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+import { useConfig } from '../context/ConfigContext.jsx';
+import { construirWhatsapp } from '../config/defaults.js';
 
 export default function ReservationButton() {
+  const { config } = useConfig();
   return (
     <motion.a
-      href={whatsappLink()}
+      href={construirWhatsapp(config.whatsapp, config.nombre_negocio)}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, scale: 0.6 }}
